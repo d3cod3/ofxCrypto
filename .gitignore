@@ -23,3 +23,14 @@ apps/*/*/obj
 
 #mac files
 .DS_Store
+
+.mailmap
+*.app
+*.dSYM
+example/bin/.tmp
+bin/.tmp
+obj/
+**/build-example-Desktop-Debug
+**/build-example-Desktop-Release
+example/bin/example
+example/bin/example_debug
