@@ -50,6 +50,9 @@
 #include "Poco/Base64Decoder.h"
 #include "Poco/Base64Encoder.h"
 #include "Poco/HMACEngine.h"
+#include "Poco/DigestEngine.h"
+
+#include "openssl/hmac.h"
 
 using Poco::DigestEngine;
 using Poco::MD5Engine;
@@ -59,6 +62,7 @@ using Poco::Base64Decoder;
 using Poco::DigestOutputStream;
 using Poco::StreamCopier;
 using Poco::HMACEngine;
+
 
 class ofxCrypto {
 public:
@@ -72,4 +76,6 @@ public:
 
     static string hmac_md5(string passphrase, string message);
     static string hmac_sha1(string passphrase, string message);
+
+    static string hmac_sha256(string passphrase, string message);
 };

@@ -3,11 +3,13 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    string str = "hello";
+    string str = "hello crypto!";
     
     // md5 and sha1 are one way encryption. no decoders available (unless you count https://github.com/juuso/BozoCrack)
-    cout << ofxCrypto::md5(str) << endl;
-    cout << ofxCrypto::sha1(str) << endl;
+    cout << "MD5 "<< ofxCrypto::md5(str) << endl;
+    cout << "SHA1 " << ofxCrypto::sha1(str) << endl;
+    cout << "HMAC SHA1 " << ofxCrypto::hmac_sha1("do238y245=Ofhi2723$&%gifduqbehk",str) << endl;
+    cout << "HMAC SHA256 " << ofxCrypto::hmac_sha256("do238y245=Ofhi2723$&%gifduqbehk",str) << endl;
     
     // base 64 encoding
     string base64EncodedStr = ofxCrypto::base64_encode(str);

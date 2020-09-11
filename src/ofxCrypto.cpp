@@ -75,7 +75,7 @@ string ofxCrypto::base64_decode(string source) {
 
 string ofxCrypto::base64_encode(ofBuffer &buffer) {
     long max = buffer.size();
-    char *buf = buffer.getBinaryBuffer();
+    char *buf = buffer.getData();
 
     string str = string(buf,max);
 
@@ -108,4 +108,15 @@ string ofxCrypto::hmac_sha1(string passphrase, string message) {
     const DigestEngine::Digest& digest = hmac.digest();
     string str(DigestEngine::digestToHex(digest));
     return str;
+}
+
+string ofxCrypto::hmac_sha256(string passphrase, string message) {
+    unsigned char* key = (unsigned char*)passphrase.c_str();
+    unsigned char* text = (unsigned char*)message.c_str();
+    unsigned char* result;
+    unsigned int result_len;
+    result = HMAC(EVP_sha256(), key, strlen((char *)key), text, strlen((char *)text), NULL, &result_len);
+    string str( reinterpret_cast<char const*>(result), result_len );
+    return str;
+
 }
