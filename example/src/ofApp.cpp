@@ -10,6 +10,7 @@ void ofApp::setup(){
     cout << "SHA1 " << ofxCrypto::sha1(str) << endl;
     cout << "HMAC SHA1 " << ofxCrypto::hmac_sha1("do238y245=Ofhi2723$&%gifduqbehk",str) << endl;
     cout << "HMAC SHA256 " << ofxCrypto::hmac_sha256("do238y245=Ofhi2723$&%gifduqbehk",str) << endl;
+    cout << "HMAC SHA512 " << ofxCrypto::hmac_sha512("do238y245=Ofhi2723$&%gifduqbehk",str) << endl;
     
     // base 64 encoding
     string base64EncodedStr = ofxCrypto::base64_encode(str);

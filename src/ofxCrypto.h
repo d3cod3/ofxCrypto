@@ -78,4 +78,5 @@ public:
     static string hmac_sha1(string passphrase, string message);
 
     static string hmac_sha256(string passphrase, string message);
+    static string hmac_sha512(string passphrase, string message);
 };
